@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact · Javali Ajayakumar</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'DM Sans',sans-serif;background:#0b0f1a;color:#e8e8e0;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:2rem 1rem}
+.page{width:100%;max-width:600px;position:relative}
+.glow{position:fixed;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(99,102,241,0.11) 0%,transparent 70%);top:-150px;left:-150px;pointer-events:none}
+.glow2{position:fixed;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(20,184,166,0.07) 0%,transparent 70%);bottom:-80px;right:-80px;pointer-events:none}
+
+/* ── Platform banner ── */
+.platform-banner{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+  border-radius:12px;padding:10px 16px;margin-bottom:1.5rem;
+  font-size:13px;color:#888;
+}
+.platform-banner .plat-icon{width:22px;height:22px;border-radius:6px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.platform-banner .plat-text{flex:1}
+.platform-banner .plat-name{font-weight:500;font-size:13px}
+.platform-banner .plat-sub{font-size:11px;color:#555;margin-top:1px}
+
+/* ── Hero ── */
+.hero{margin-bottom:2rem}
+.name-row{display:flex;align-items:center;gap:12px;margin-bottom:0.4rem;flex-wrap:wrap}
+h1{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,5.5vw,2.8rem);font-weight:800;line-height:1.1;color:#f0f0e8}
+h1 .last{background:linear-gradient(135deg,#818cf8,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.avail-dot{display:inline-flex;align-items:center;gap:5px;background:rgba(52,211,153,0.12);border:1px solid rgba(52,211,153,0.25);color:#6ee7b7;font-size:11px;letter-spacing:0.07em;padding:4px 10px;border-radius:100px;white-space:nowrap}
+.avail-dot::before{content:'';width:5px;height:5px;border-radius:50%;background:#34d399;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.tagline{color:#888880;font-size:14px;line-height:1.6;margin-bottom:0.5rem}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:1.5rem}
+.tag{font-size:11px;letter-spacing:0.05em;padding:3px 10px;border-radius:100px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:#666}
+
+/* LinkedIn priority strip */
+.li-strip{
+  display:flex;align-items:center;gap:10px;
+  background:rgba(10,102,194,0.1);border:1px solid rgba(10,102,194,0.25);
+  border-radius:12px;padding:10px 14px;margin-bottom:1.5rem;
+}
+.li-strip svg{flex-shrink:0}
+.li-strip-text{font-size:12px;color:#93c5fd;line-height:1.5}
+.li-strip-text strong{font-size:13px;color:#bfdbfe;display:block;margin-bottom:2px}
+
+/* ── Card ── */
+.card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:2rem;backdrop-filter:blur(12px)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.field{display:flex;flex-direction:column;gap:5px;margin-bottom:1.1rem}
+label{font-size:11px;letter-spacing:0.07em;color:#666;font-weight:500}
+input,select,textarea{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:10px;padding:10px 13px;color:#e8e8e0;font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color 0.2s,background 0.2s;width:100%}
+input::placeholder,textarea::placeholder{color:#3a3a3a}
+input:focus,select:focus,textarea:focus{border-color:rgba(129,140,248,0.5);background:rgba(129,140,248,0.04)}
+select option{background:#1a1f2e;color:#e8e8e0}
+textarea{resize:vertical;min-height:120px}
+
+/* platform selector */
+.plat-select-wrap{position:relative}
+.plat-select-wrap select{padding-left:36px}
+.plat-select-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);pointer-events:none;display:flex;align-items:center}
+
+.btn{width:100%;padding:13px;background:linear-gradient(135deg,#6366f1,#14b8a6);border:none;border-radius:12px;color:#fff;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;letter-spacing:0.03em;cursor:pointer;transition:opacity 0.2s,transform 0.15s;margin-top:0.4rem}
+.btn:hover{opacity:0.88}
+.btn:active{transform:scale(0.99)}
+
+/* socials */
+.social-row{display:flex;align-items:center;gap:8px;margin-top:1.4rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,0.06);flex-wrap:wrap}
+.social-label{font-size:11px;color:#444;margin-right:2px;letter-spacing:0.05em}
+.social-link{display:inline-flex;align-items:center;gap:5px;padding:5px 11px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:100px;color:#666;font-size:12px;text-decoration:none;transition:color 0.2s,border-color 0.2s}
+.social-link.li:hover{color:#93c5fd;border-color:rgba(10,102,194,0.4)}
+.social-link.ig:hover{color:#f9a8d4;border-color:rgba(225,48,108,0.35)}
+
+/* ── Success Page ── */
+#success-page{display:none;animation:fadeUp 0.55s ease forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.success-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:2.5rem 2rem;backdrop-filter:blur(12px);text-align:center}
+.checkmark{width:68px;height:68px;margin:0 auto 1.4rem;border-radius:50%;background:linear-gradient(135deg,rgba(99,102,241,0.18),rgba(20,184,166,0.18));border:1px solid rgba(52,211,153,0.28);display:flex;align-items:center;justify-content:center}
+.success-card h2{font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:800;color:#f0f0e8;margin-bottom:0.5rem}
+.success-card h2 span{background:linear-gradient(135deg,#818cf8,#34d399);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.success-card p{color:#888880;font-size:14px;line-height:1.7;margin-bottom:1.5rem}
+.reply-est{display:inline-flex;align-items:center;gap:6px;background:rgba(52,211,153,0.09);border:1px solid rgba(52,211,153,0.22);color:#6ee7b7;font-size:11px;letter-spacing:0.06em;padding:5px 13px;border-radius:100px;margin-bottom:1.6rem}
+.reply-est::before{content:'';width:5px;height:5px;border-radius:50%;background:#34d399}
+.divider{border:none;border-top:1px solid rgba(255,255,255,0.06);margin:1.4rem 0}
+.connect-label{font-size:11px;color:#444;letter-spacing:0.07em;margin-bottom:0.9rem}
+.socials-grid{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;margin-bottom:1.8rem}
+.s-btn{display:inline-flex;align-items:center;gap:7px;padding:8px 16px;border-radius:100px;font-size:13px;font-family:'DM Sans',sans-serif;cursor:pointer;text-decoration:none;border:1px solid;transition:opacity 0.2s}
+.s-btn:hover{opacity:0.75}
+.s-btn.linkedin{background:rgba(10,102,194,0.14);border-color:rgba(10,102,194,0.32);color:#93c5fd}
+.s-btn.instagram{background:rgba(225,48,108,0.1);border-color:rgba(225,48,108,0.28);color:#f9a8d4}
+.back-btn{background:transparent;border:1px solid rgba(255,255,255,0.09);color:#666;padding:9px 22px;border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;transition:color 0.2s,border-color 0.2s}
+.back-btn:hover{color:#e8e8e0;border-color:rgba(255,255,255,0.22)}
+
+/* LinkedIn special success card */
+.li-success-note{display:none;background:rgba(10,102,194,0.09);border:1px solid rgba(10,102,194,0.22);border-radius:12px;padding:12px 16px;margin-bottom:1.4rem;text-align:left}
+.li-success-note p{font-size:12px;color:#93c5fd;line-height:1.6}
+.li-success-note strong{color:#bfdbfe;display:block;margin-bottom:3px;font-size:13px}
+
+@media(max-width:480px){.row{grid-template-columns:1fr}.card,.success-card{padding:1.4rem}.li-strip{flex-direction:column;align-items:flex-start;gap:6px}}
+</style>
+</head>
+<body>
+
+<div class="glow"></div>
+<div class="glow2"></div>
+
+<div class="page">
+
+  <!-- ══ CONTACT PAGE ══ -->
+  <div id="contact-page">
+
+    <!-- Platform banner (auto-detected) -->
+    <div class="platform-banner" id="plat-banner">
+      <div class="plat-icon" id="plat-icon"></div>
+      <div class="plat-text">
+        <div class="plat-name" id="plat-name">Welcome!</div>
+        <div class="plat-sub" id="plat-sub">Glad you found your way here</div>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <div class="name-row">
+        <h1>Javali <span class="last">Ajayakumar</span></h1>
+        <span class="avail-dot">Available</span>
+      </div>
+      <p class="tagline">DAIML Student · Developer · Creator · Open to Collaborations</p>
+      <div class="tags">
+        <span class="tag">AI & ML</span>
+        <span class="tag">Full-Stack</span>
+        <span class="tag">Content Creator</span>
+        <span class="tag">Brand Ambassador</span>
+        <span class="tag">Research</span>
+      </div>
+
+      <!-- LinkedIn priority strip -->
+      <div class="li-strip" id="li-strip" style="display:none">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="#3b82f6"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+        <div class="li-strip-text">
+          <strong>You're visiting from LinkedIn</strong>
+          I'm actively open to internships, collaborations, and research roles. Feel free to reach out directly below — I prioritize LinkedIn connections!
+        </div>
+      </div>
+    </div>
+
+    <!-- Form card -->
+    <div class="card">
+      <div class="row">
+        <div class="field">
+          <label>FIRST NAME</label>
+          <input type="text" id="fname" placeholder="e.g. Ravi" />
+        </div>
+        <div class="field">
+          <label>LAST NAME</label>
+          <input type="text" id="lname" placeholder="e.g. Kumar" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label>EMAIL ADDRESS</label>
+        <input type="email" id="email" placeholder="you@example.com" />
+      </div>
+
+      <div class="field">
+        <label>WHERE ARE YOU FROM?</label>
+        <div class="plat-select-wrap">
+          <div class="plat-select-icon" id="sel-icon"></div>
+          <select id="platform-select" onchange="onPlatformSelect()">
+            <option value="linkedin">💼  LinkedIn</option>
+            <option value="instagram">📸  Instagram</option>
+            <option value="other">🌐  Other / Direct</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>SUBJECT / REASON</label>
+        <select id="subject">
+          <option value="" disabled selected>Select a topic...</option>
+          <option>Collaboration opportunity</option>
+          <option>Internship / Part-time role</option>
+          <option>Project inquiry</option>
+          <option>Research assistant role</option>
+          <option>Brand ambassador / Event staff</option>
+          <option>Just saying hello</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>MESSAGE</label>
+        <textarea id="message" placeholder="Tell me what's on your mind..."></textarea>
+      </div>
+
+      <button class="btn" onclick="handleSend()">Send Message →</button>
+
+      <div class="social-row">
+        <span class="social-label">FIND ME ON</span>
+        <a class="social-link li" href="https://www.linkedin.com/in/" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          LinkedIn
+        </a>
+        <a class="social-link ig" href="https://www.instagram.com/YOUR_HANDLE" target="_blank">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SUCCESS PAGE ══ -->
+  <div id="success-page">
+    <div class="success-card">
+      <div class="checkmark">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="url(#g)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#818cf8"/><stop offset="100%" stop-color="#34d399"/></linearGradient></defs>
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <h2>Message <span>Sent!</span></h2>
+      <p>Thanks for reaching out, <strong id="sender-name" style="color:#e8e8e0;font-weight:500"></strong>!<br>I've received your message and will reply soon.</p>
+      <div class="reply-est">Typical reply: within 1–2 days</div>
+
+      <!-- LinkedIn-specific note shown only for LinkedIn visitors -->
+      <div class="li-success-note" id="li-success-note">
+        <strong>Since you're from LinkedIn</strong>
+        <p>I'll prioritize your message. Feel free to also connect with me directly on LinkedIn — I accept all professional connections!</p>
+      </div>
+
+      <hr class="divider">
+      <p class="connect-label">STAY CONNECTED</p>
+      <div class="socials-grid">
+        <a class="s-btn linkedin" href="https://www.linkedin.com/in/" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          Connect on LinkedIn
+        </a>
+        <a class="s-btn instagram" href="https://www.instagram.com/YOUR_HANDLE" target="_blank">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          Follow on Instagram
+        </a>
+      </div>
+      <button class="back-btn" onclick="goBack()">← Send another message</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+const platforms = {
+  linkedin:  { name:'LinkedIn',  icon:'💼', sub:'Professional networking visitor', color:'#3b82f6' },
+  instagram: { name:'Instagram', icon:'📸', sub:'Instagram visitor — welcome!',    color:'#ec4899' },
+  other:     { name:'Direct visitor', icon:'🌐', sub:'Welcome — glad you found me!', color:'#818cf8' }
+};
+
+function detectPlatform() {
+  const ref = document.referrer.toLowerCase();
+  if (ref.includes('linkedin')) return 'linkedin';
+  if (ref.includes('instagram')) return 'instagram';
+  return 'linkedin'; // default to LinkedIn (primary platform)
+}
+
+function applyPlatform(key) {
+  const p = platforms[key] || platforms.linkedin;
+  document.getElementById('plat-name').textContent = p.name + ' visitor';
+  document.getElementById('plat-sub').textContent = p.sub;
+  document.getElementById('plat-icon').textContent = p.icon;
+  document.getElementById('plat-icon').style.fontSize = '16px';
+
+  // LinkedIn priority strip
+  document.getElementById('li-strip').style.display = key === 'linkedin' ? 'flex' : 'none';
+
+  // sync dropdown
+  const sel = document.getElementById('platform-select');
+  for (let i = 0; i < sel.options.length; i++) {
+    if (sel.options[i].value === key) { sel.selectedIndex = i; break; }
+  }
+}
+
+function onPlatformSelect() {
+  const key = document.getElementById('platform-select').value;
+  applyPlatform(key);
+}
+
+let currentPlatform = 'linkedin';
+
+window.addEventListener('DOMContentLoaded', () => {
+  currentPlatform = detectPlatform();
+  applyPlatform(currentPlatform);
+});
+
+function handleSend() {
+  const fname   = document.getElementById('fname').value.trim();
+  const lname   = document.getElementById('lname').value.trim();
+  const email   = document.getElementById('email').value.trim();
+  const subject = document.getElementById('subject').value;
+  const message = document.getElementById('message').value.trim();
+  const plat    = document.getElementById('platform-select').value;
+
+  if (!fname || !email || !subject || !message) {
+    alert('Please fill in your name, email, subject, and message.');
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  const fullName = fname + (lname ? ' ' + lname : '');
+  const platLabel = platforms[plat]?.name || 'Direct';
+  const mailSub = encodeURIComponent('[' + platLabel + ' Contact] ' + subject);
+  const body = encodeURIComponent(
+    'Name: ' + fullName + '\nEmail: ' + email +
+    '\nPlatform: ' + platLabel + '\nSubject: ' + subject +
+    '\n\nMessage:\n' + message
+  );
+  window.location.href = 'mailto:YOUR_EMAIL@gmail.com?subject=' + mailSub + '&body=' + body;
+
+  document.getElementById('sender-name').textContent = fname;
+  document.getElementById('li-success-note').style.display = plat === 'linkedin' ? 'block' : 'none';
+  document.getElementById('contact-page').style.display = 'none';
+  document.getElementById('success-page').style.display = 'block';
+}
+
+function goBack() {
+  document.getElementById('success-page').style.display = 'none';
+  document.getElementById('contact-page').style.display = 'block';
+  ['fname','lname','email','message'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('subject').selectedIndex = 0;
+}
+</script>
+</body>
+</html>
